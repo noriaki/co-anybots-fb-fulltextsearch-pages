@@ -25,6 +25,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'guard-rspec'
+  gem 'guard-bundler', require: false
 end
 
 group :test do
