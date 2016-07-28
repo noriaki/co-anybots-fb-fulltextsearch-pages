@@ -108,6 +108,10 @@ GEM
       mongo (~> 2.1)
       origin (~> 2.2)
       tzinfo (>= 0.3.37)
+    mongoid-rspec (3.0.0)
+      mongoid (~> 5.0)
+      rake
+      rspec (~> 3.3)
     multi_json (1.12.1)
     nenv (0.3.0)
     nokogiri (1.6.8)
@@ -228,6 +232,7 @@ DEPENDENCIES
   httpclient
   jbuilder (~> 2.0)
   mongoid
+  mongoid-rspec
   pry-rails
   pry-rescue
   rails (= 4.2.7)

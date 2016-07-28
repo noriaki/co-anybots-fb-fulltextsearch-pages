@@ -17,6 +17,7 @@ group :development, :test do
   gem 'unicorn'
   gem 'unicorn-rails'
   gem 'rspec-rails'
+  gem 'mongoid-rspec'
   gem 'spring-commands-rspec'
 end
 
