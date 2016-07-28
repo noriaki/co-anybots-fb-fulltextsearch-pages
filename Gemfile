@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
@@ -14,12 +14,19 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem "unicorn"
-  gem "unicorn-rails"
+  gem 'unicorn'
+  gem 'unicorn-rails'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
   gem 'better_errors'
+  gem 'guard-rspec'
+end
+
+group :test do
+  gem 'simplecov', require: false
 end
 
 gem 'dotenv-rails'
