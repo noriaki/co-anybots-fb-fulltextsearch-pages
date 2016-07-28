@@ -10,6 +10,8 @@ require 'rspec/rails'
 require 'simplecov'
 SimpleCov.start
 
+require 'factory_girl'
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -26,6 +28,14 @@ SimpleCov.start
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
+
+  config.infer_base_class_for_anonymous_controllers = false
+  config.order = 'random'
+
+  config.before(:all) do
+    FactoryGirl.reload
+  end
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.

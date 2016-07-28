@@ -5,14 +5,6 @@ ruby '2.3.1'
 gem 'rails', '4.2.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -25,13 +17,22 @@ group :development, :test do
   gem 'unicorn'
   gem 'unicorn-rails'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'mongoid-rspec'
   gem 'spring-commands-rspec'
 end
 
 group :development do
+  gem 'better_errors'
   gem 'guard-rspec'
+  gem 'guard-bundler', require: false
 end
 
 group :test do
   gem 'simplecov', require: false
 end
+
+gem 'dotenv-rails'
+gem 'mongoid'
+gem 'httpclient'
+gem 'fb_graph2'
