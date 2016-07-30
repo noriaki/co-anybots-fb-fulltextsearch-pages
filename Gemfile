@@ -38,3 +38,8 @@ gem 'dotenv-rails'
 gem 'mongoid'
 gem 'httpclient'
 gem 'fb_graph2'
+
+gem 'elasticsearch'
+gem 'elasticsearch-dsl'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
