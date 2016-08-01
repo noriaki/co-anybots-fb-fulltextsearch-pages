@@ -2,6 +2,10 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
+  before(:each) do
+    Article.destroy_all
+  end
+
   describe 'FaceboryGirl' do
     it { expect(build(:article)).to be_valid }
   end
