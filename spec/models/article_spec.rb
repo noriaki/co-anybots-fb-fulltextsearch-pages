@@ -63,7 +63,7 @@ RSpec.describe Article, type: :model do
 
     # https://github.com/elastic/elasticsearch-rails/blob/master/elasticsearch-model/test/integration/mongoid_basic_test.rb
     it 'インデックスされていて検索できる' do
-      response = described_class.search('body:京都')
+      response = described_class.search('京都')
       expect(response).to be_present
       expect(response.results.size).to eq(1)
       expect(response.records.size).to eq(1)
@@ -71,7 +71,7 @@ RSpec.describe Article, type: :model do
 
     it '検索結果を順番に処理できる' do
       result_ids = ['1234567891', '1234567892'];
-      response = described_class.search('body:東京')
+      response = described_class.search('東京')
       expect(response).to be_present
       expect(response.results.map(&:identifier).sort).to eq result_ids.sort
       expect(response.records.map(&:identifier).sort).to eq result_ids.sort
@@ -81,7 +81,7 @@ RSpec.describe Article, type: :model do
       create(:article)
       expect(Article.count).to eq(4)
       described_class.__elasticsearch__.refresh_index!
-      response = described_class.search('body:東京')
+      response = described_class.search('東京')
       expect(response).to be_present
       expect(response.results.size).to eq(3)
       expect(response.records.size).to eq(3)
@@ -91,7 +91,7 @@ RSpec.describe Article, type: :model do
       Article.first.destroy
       expect(Article.count).to eq(2)
       described_class.__elasticsearch__.refresh_index!
-      response = described_class.search('body:東京')
+      response = described_class.search('東京')
       expect(response).to be_present
       expect(response.results.size).to eq(1)
       expect(response.records.size).to eq(1)
@@ -100,11 +100,11 @@ RSpec.describe Article, type: :model do
     it 'データを更新するとインデックスにも反映される' do
       Article.first.update_attributes(body: '大阪府知事選挙に出馬する')
       described_class.__elasticsearch__.refresh_index!
-      response = described_class.search('body:東京')
+      response = described_class.search('東京')
       expect(response).to be_present
       expect(response.results.size).to eq(1)
       expect(response.records.size).to eq(1)
-      response = described_class.search('body:大阪')
+      response = described_class.search('大阪')
       expect(response).to be_present
       expect(response.results.size).to eq(1)
       expect(response.records.size).to eq(1)
