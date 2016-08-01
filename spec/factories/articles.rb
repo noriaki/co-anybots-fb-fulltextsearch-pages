@@ -14,7 +14,11 @@ FactoryGirl.define do
     '京都の清水寺の来場者数は'
   ]
   factory :searchable_article, class: Article do
-    sequence(:identifier) {|n| (1234567891 + (n-1) % searchable_bodies.size).to_s }
-    sequence(:body) {|n| searchable_bodies[(n-1) % searchable_bodies.size] }
+    sequence(:identifier) {|n|
+      (1234567891 + (n-1) % searchable_bodies.size).to_s
+    }
+    sequence(:body) {|n|
+      searchable_bodies[(n-1) % searchable_bodies.size]
+    }
   end
 end
