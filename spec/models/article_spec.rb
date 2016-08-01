@@ -109,5 +109,23 @@ RSpec.describe Article, type: :model do
       expect(response.results.size).to eq(1)
       expect(response.records.size).to eq(1)
     end
+
+    describe '複数キーワードの検索はAND検索' do
+      it 'キーワードの区切り文字に半角スペースが使える' do
+        response = described_class.search('東京 言葉')
+        expect(response).to be_present
+        expect(response.results.size).to eq(1)
+        expect(response.records.size).to eq(1)
+        expect(response.records.to_a.first.identifier).to eq('1234567892')
+      end
+
+      it 'キーワードの区切り文字に全角スペースが使える' do
+        response = described_class.search('東京　言葉')
+        expect(response).to be_present
+        expect(response.results.size).to eq(1)
+        expect(response.records.size).to eq(1)
+        expect(response.records.to_a.first.identifier).to eq('1234567892')
+      end
+    end
   end
 end

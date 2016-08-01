@@ -32,6 +32,7 @@ class Article
       query_builder = Qiita::Elasticsearch::QueryBuilder.new(
         default_fields: ['body']
       )
+      query.gsub!(/[[:blank:]]+/, ' ')
       query += ' sort:related-desc'
       __elasticsearch__.search query_builder.build(query)
     end
