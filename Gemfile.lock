@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/noriaki/qiita-elasticsearch.git
+  revision: 13e72dee4dfb7ec6c697bbf93f4a0c573b0c30d8
+  specs:
+    qiita-elasticsearch (0.16.0)
+      activesupport
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -179,8 +186,6 @@ GEM
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
-    qiita-elasticsearch (0.16.0)
-      activesupport
     rack (1.6.4)
     rack-oauth2 (1.4.0)
       activesupport (>= 2.3)
@@ -305,7 +310,7 @@ DEPENDENCIES
   mongoid-rspec
   pry-rails
   pry-rescue
-  qiita-elasticsearch
+  qiita-elasticsearch!
   rails (= 4.2.7)
   rspec-rails
   simplecov
